@@ -18,6 +18,19 @@ Add this line to your application's Gemfile:
 
 add ./vendor/bundle to .gitignore
 
+From base of project:
+`pushapp init`
+
+Edit `config/pushapp.rb`
+Insert IP Address of Server to provision into `pushapp.rb`
+Modify the deployment folder in `pushapp.rb`
+Generate chef-solo
+Cd into `config/deploys/chef && librarian-chef inst && knife solo bootstrap USER@IPADDRESS`
+pushapp generate web production
+`touch tmp/pids/.keep && git add tmps/pids/.keep -f`
+`pushapp setup production`
+`git push production`
+
 ## Supported tasks
 
  - :unicorn_signal - sends USR2 signal to tmp/pids/unicorn.pid
